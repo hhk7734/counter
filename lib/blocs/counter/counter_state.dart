@@ -8,3 +8,15 @@ abstract class CounterState extends Equatable {
 }
 
 class CounterInitial extends CounterState {}
+
+class CounterUpdate extends CounterState {
+  final int count;
+
+  const CounterUpdate(this.count);
+
+  @override
+  List<Object> get props => [count];
+
+  @override
+  String toString() => 'Update count to $count';
+}
