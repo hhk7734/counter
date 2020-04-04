@@ -11,6 +11,7 @@ class CounterScreen extends StatelessWidget {
       ),
       body: BlocBuilder<CounterBloc, CounterState>(
         builder: (context, state) {
+          // Receive state from Bloc.
           if (state is CounterUpdate) {
             return Center(
               child: Text(
@@ -33,6 +34,7 @@ class CounterScreen extends StatelessWidget {
             child: FloatingActionButton(
               child: Icon(Icons.arrow_upward),
               onPressed: () {
+                // Transmit event to Bloc.
                 BlocProvider.of<CounterBloc>(context).add(CounterIncremented());
               },
             ),

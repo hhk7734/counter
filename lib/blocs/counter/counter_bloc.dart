@@ -17,6 +17,7 @@ class CounterBloc extends Bloc<CounterEvent, CounterState> {
 
   @override
   Stream<CounterState> mapEventToState(
+    // Receive event from publisher and transmit state to subscriber.
     CounterEvent event,
   ) async* {
     if (event is CounterIncremented) {
@@ -25,6 +26,8 @@ class CounterBloc extends Bloc<CounterEvent, CounterState> {
       _count--;
     }
 
+    // Must yield a new instance of the state.
+    // If yielding same state twice, it will not respond.
     yield CounterUpdate(_count);
   }
 }

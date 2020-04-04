@@ -14,6 +14,7 @@ class CounterUpdate extends CounterState {
 
   const CounterUpdate(this.count);
 
+  // Pass all properties to props.
   @override
   List<Object> get props => [count];
 
